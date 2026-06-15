@@ -63,7 +63,7 @@ This keeps ttyd and its bundled libraries separate from pfSense system packages.
 
 ## Install
 
-From an pfSense shell, enter this project directory and run:
+Upload the package installer to the firewall and run the following command in the pfSense shell to install it：
 
 ```sh
 pkg add -f pfSense-pkg-ttyd.pkg
