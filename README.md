@@ -1,11 +1,8 @@
 # ttyd for pfSense
 
-
-
 [![pfSense](https://img.shields.io/badge/pfSense-Package-212121?logo=pfsense&logoColor=white)](https://www.pfsense.org/)
 [![FreeBSD](https://img.shields.io/badge/FreeBSD-15%20%7C%2016-red?logo=freebsd&logoColor=white)](https://www.freebsd.org/)
 [![ttyd](https://img.shields.io/badge/ttyd-Web%20Terminal-blue)](https://github.com/tsl0922/ttyd)
-[![License](https://img.shields.io/github/license/Opnwall/ttyd-for-pfSense)](https://github.com/Opnwall/ttyd-for-pfSense/blob/main/LICENSE)
 
 This package adds a ttyd browser terminal to the pfSense web interface under:
 
