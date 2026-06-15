@@ -1,5 +1,12 @@
 # ttyd for pfSense
 
+
+
+[![pfSense](https://img.shields.io/badge/pfSense-Package-212121?logo=pfsense&logoColor=white)](https://www.pfsense.org/)
+[![FreeBSD](https://img.shields.io/badge/FreeBSD-15%20%7C%2016-red?logo=freebsd&logoColor=white)](https://www.freebsd.org/)
+[![ttyd](https://img.shields.io/badge/ttyd-Web%20Terminal-blue)](https://github.com/tsl0922/ttyd)
+[![License](https://img.shields.io/github/license/Opnwall/ttyd-for-pfSense)](https://github.com/Opnwall/ttyd-for-pfSense/blob/main/LICENSE)
+
 This package adds a ttyd browser terminal to the pfSense web interface under:
 
 ```text
@@ -12,7 +19,14 @@ The web terminal does not execute commands through PHP. It starts a real TTY thr
 printf "login: "; read -r user; ssh -tt "$user@127.0.0.1"
 ```
 
-Authentication, permissions, auditing, and the shell environment remain controlled by pfSense SSH. Full TTY behavior such as `vi`, `top`, `less`, interactive scripts, Ctrl-C, job control, and curses applications is supported.
+Authentication, permissions, auditing, and the shell environment remain controlled by OPNsense OpenSSH. 
+
+Tested and verified in the following environments:
+
+- pfSense CE 2.8.1
+- pfSense plus 26.03
+
+![](image/ttyd.png)
 
 ## Compatibility
 
@@ -48,20 +62,23 @@ This keeps ttyd and its bundled libraries separate from pfSense system packages.
 - `src/usr/local/share/ttyd-for-pfsense/freebsd16.tar.gz`: offline FreeBSD 16 runtime.
 - `src/usr/local/etc/rc.d/ttyd`: rc.d service script.
 - `src/etc/rc.conf.d/ttyd`: default service configuration.
-- `install.sh`: manual installer.
-- `uninstall.sh`: manual uninstaller.
 - `build.sh`: creates a FreeBSD pkg package.
 
 ## Install
 
-From a pfSense shell, enter this project directory and run:
+From an pfSense shell, enter this project directory and run:
 
 ```sh
-chmod +x install.sh uninstall.sh build.sh
-./install.sh
+pkg add -f os-ttyd.pkg
 ```
 
 Refresh the pfSense web interface and open `Diagnostics > ttyd`.
+
+## Uninstall
+
+```sh
+pkg delete os-ttyd
+```
 
 ## Requirements
 
@@ -81,18 +98,11 @@ The terminal first displays `login:`. Enter the pfSense SSH username, then enter
 
 The service uses the pfSense WebGUI certificate from the generated WebConfigurator nginx configuration, falling back to `/var/etc/cert.crt` and `/var/etc/cert.key`. It does not generate its own HTTPS certificate.
 
-## Configuration
-
-The SSH target is fixed to:
-
-```text
-127.0.0.1:22
-```
-
-The default ttyd listen address is `0.0.0.0`, and the default port is `7681`.
-
 ## Security Notes
 
 - Do not expose the ttyd listener to WAN.
 - Use strong pfSense administrator credentials or SSH keys.
 - Remove the package or restrict management access when the terminal is not needed.
+
+## Disclaimer
+This is an unofficial plugin and is not supported by the pfSense team; use at your own risk.
