@@ -66,7 +66,7 @@ This keeps ttyd and its bundled libraries separate from pfSense system packages.
 From an pfSense shell, enter this project directory and run:
 
 ```sh
-pkg add -f os-ttyd.pkg
+pkg add -f pfSense-pkg-ttyd.pkg
 ```
 
 Refresh the pfSense web interface and open `Diagnostics > ttyd`.
@@ -74,7 +74,7 @@ Refresh the pfSense web interface and open `Diagnostics > ttyd`.
 ## Uninstall
 
 ```sh
-pkg delete os-ttyd
+pkg delete pfSense-pkg-ttyd
 ```
 
 ## Requirements
