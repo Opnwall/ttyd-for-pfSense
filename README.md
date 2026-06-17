@@ -102,4 +102,5 @@ The service uses the pfSense WebGUI certificate from the generated WebConfigurat
 - Remove the package or restrict management access when the terminal is not needed.
 
 ## Disclaimer
-This is an unofficial plugin and is not supported by the pfSense team; use at your own risk.
+
+This is an unofficial community project and is not affiliated with, endorsed by, or supported by the pfSense team. Please review the source code carefully before deployment and use it at your own risk.
